@@ -3,85 +3,272 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahmoud Elnagar - Flutter Developer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #f0f8ff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #8e44ad;
+            border-radius: 10px;
+        }
+
+        nav a {
+            margin: 0 10px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #6c3483;
+            border-radius: 5px;
+        }
+
+        section {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        h3 {
+            margin: 15px 0 10px 0;
+            color: #8e44ad;
+        }
+
+        #about {
+            text-align: center;
+            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        #about img {
+            margin-bottom: 15px;
+            border: 3px solid #8e44ad;
+            border-radius: 50%;
+        }
+
+        #skills ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        #skills li {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+
+        .project {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        .project img {
+            flex-shrink: 0;
+        }
+
+        .project-content {
+            flex: 1;
+        }
+
+        .project a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+
+        #contact form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            background-color: #f8f9fa;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px auto;
+            display: block;
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #27ae60;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .project {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #skills ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <a href="#about">About</a> |
-        <a href="#skills">Skills</a> |
-        <a href="#projects">Projects</a> |
-        <a href="#contact">Contact Me</a>
-    </nav>
-    <hr>
-    <main>
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <img src="Mahmoud.png" alt="Profile Picture" width="120" height="120">
+    <div class="container">
+        <!-- Navigation Bar -->
+        <nav>
+            <a href="#about">👤 About</a>
+            <a href="#skills">💻 Skills</a>
+            <a href="#projects">🚀 Projects</a>
+            <a href="#contact">📧 Contact Me</a>
+        </nav>
 
-            <p>I am Mahmoud Elnagar, Flutter Developer and a Bachelor's degree student in Computer Science with a focus
-                on building high-performance, responsive, and user-friendly mobile applications.</p>
-        </section>
-        <hr>
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Dart, C &amp; C++, Python</li>
-                <li>OOP &amp; Data Structure</li>
-                <li>Flutter Framework</li>
-                <li>RESTful API</li>
-                <li>Local Storage (Hive &amp; Shared Preference)</li>
-                <li>Firebase integration</li>
-                <li>MVVM &amp; Clean Architecture</li>
-                <li>State Management (Bloc &amp; cubit &amp; Provider)</li>
-                <li>Git &amp; Github</li>
-                <li>Responsive &amp; Adaptive UI</li>
-            </ul>
-        </section>
-        <hr>
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
-            <h3>1. FilmRise</h3>
-            <img src="FilmRise.png" alt="FilmRise App" width="80" height="80">
-            <p>A Flutter-based movie App built using BLoC, Clean Architecture, and SOLID principles to ensure
-                scalability, maintainability, and robust design patterns.</p>
-            <a href="https://github.com/Mahmoudelnagar5/FilmRise" target="_blank">View on GitHub</a>
-            <h3>2. Muslim</h3>
-            <img src="Muslim.png" alt="Muslim App" width="80" height="80">
-            <p>Quran App Built using the MVVM pattern, this app delivers clean architecture, efficient state management
-                with Flutter Bloc.</p>
-            <a href="https://github.com/Mahmoudelnagar5/Muslim" target="_blank">View on GitHub</a>
-            <h3>3. Gemini AI</h3>
-            <img src="Gemini.png" alt="Gemini AI App" width="80" height="80">
-            <p>Developed a cutting-edge Flutter chat app powered by Gemini AI, supporting multimedia messaging with text
-                and images, real-time interaction, seamless image handling, and robust state management using Flutter
-                Bloc for a smooth and scalable user experience.</p>
-            <a href="https://github.com/Mahmoudelnagar5/Gemini" target="_blank">View on GitHub</a>
-        </section>
-        <hr>
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form action="mailto:elnagarm852@gmail.com" method="POST" enctype="text/plain">
-                <label for="name">Name</label><br>
-                <input type="text" id="name" name="name" required><br>
-                <label for="email">Email</label><br>
-                <input type="email" id="email" name="email" required><br>
-                <label for="message">Message</label><br>
-                <textarea id="message" name="message" rows="4" required></textarea><br>
-                <button type="submit">Send</button>
-            </form>
-            <p>
-                <a href="mailto:elnagarm852@gmail.com">Email</a> |
-                <a href="https://www.linkedin.com/in/mahmoud-elnagar-11040a259/" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/Mahmoudelnagar5" target="_blank">GitHub</a>
-            </p>
-        </section>
-    </main>
+        <main>
+            <!-- About Section -->
+            <section id="about">
+                <h2>👋 About Me</h2>
+                <img src="Mahmoud.png" alt="Profile Picture" width="120" height="120">
+                <p>I am Mahmoud Elnagar, Flutter Developer and a Bachelor's degree student in Computer Science with a
+                    focus
+                    on building high-performance, responsive, and user-friendly mobile applications.</p>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills">
+                <h2>🛠️ Skills</h2>
+                <ul>
+                    <li>🐍 Dart, C &amp; C++, Python</li>
+                    <li>🏗️ OOP &amp; Data Structure</li>
+                    <li>📱 Flutter Framework</li>
+                    <li>🌐 RESTful API</li>
+                    <li>💾 Local Storage (Hive &amp; Shared Preference)</li>
+                    <li>🔥 Firebase integration</li>
+                    <li>🏛️ MVVM &amp; Clean Architecture</li>
+                    <li>⚡ State Management (Bloc &amp; cubit &amp; Provider)</li>
+                    <li>📚 Git &amp; Github</li>
+                    <li>📱 Responsive &amp; Adaptive UI</li>
+                </ul>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects">
+                <h2>🎯 Projects</h2>
+
+                <div class="project">
+                    <img src="FilmRise.png" alt="FilmRise App" width="80" height="80">
+                    <div class="project-content">
+                        <h3>🎬 1. FilmRise</h3>
+                        <p>A Flutter-based movie App built using BLoC, Clean Architecture, and SOLID principles to
+                            ensure
+                            scalability, maintainability, and robust design patterns.</p>
+                        <a href="https://github.com/Mahmoudelnagar5/FilmRise" target="_blank">🔗 View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="Muslim.png" alt="Muslim App" width="80" height="80">
+                    <div class="project-content">
+                        <h3>📖 2. Muslim</h3>
+                        <p>Quran App Built using the MVVM pattern, this app delivers clean architecture, efficient state
+                            management
+                            with Flutter Bloc.</p>
+                        <a href="https://github.com/Mahmoudelnagar5/Muslim" target="_blank">🔗 View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <img src="Gemini.png" alt="Gemini AI App" width="80" height="80">
+                    <div class="project-content">
+                        <h3>🤖 3. Gemini AI</h3>
+                        <p>Developed a cutting-edge Flutter chat app powered by Gemini AI, supporting multimedia
+                            messaging with text
+                            and images, real-time interaction, seamless image handling, and robust state management
+                            using Flutter
+                            Bloc for a smooth and scalable user experience.</p>
+                        <a href="https://github.com/Mahmoudelnagar5/Gemini" target="_blank">🔗 View on GitHub</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact">
+                <h2>📞 Contact Me</h2>
+                <form action="mailto:elnagarm852@gmail.com" method="POST" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">👤 Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">📧 Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">💬 Message</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit">📤 Send Message</button>
+                </form>
+
+                <div class="social-links">
+                    <a href="mailto:elnagarm852@gmail.com">📧 Email</a>
+                    <a href="https://www.linkedin.com/in/mahmoud-elnagar-11040a259/" target="_blank">💼 LinkedIn</a>
+                    <a href="https://github.com/Mahmoudelnagar5" target="_blank">🐙 GitHub</a>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
 
 </html>
