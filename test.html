@@ -4,271 +4,866 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahmoud Elnagar - Flutter Developer</title>
+    <title>Mahmoud Mostafa - Flutter Developer</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-            background-color: #f0f8ff;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        nav {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #8e44ad;
-            border-radius: 10px;
-        }
-
-        nav a {
-            margin: 0 10px;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: white;
-            background-color: #6c3483;
-            border-radius: 5px;
-        }
-
-        section {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        h3 {
-            margin: 15px 0 10px 0;
-            color: #8e44ad;
-        }
-
-        #about {
-            text-align: center;
-            border: 1px solid #ddd;
-            background-color: #f8f9fa;
-        }
-
-        #about img {
-            margin-bottom: 15px;
-            border: 3px solid #8e44ad;
-            border-radius: 50%;
-        }
-
-        #skills ul {
-            list-style: none;
             padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            background: #000;
+            min-height: 100vh;
+            color: #f5f6fa;
         }
 
-        #skills li {
-            padding: 10px;
-            text-align: center;
-            border: 1px solid #ddd;
-            background-color: #f8f9fa;
-            color: #495057;
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px 24px 40px;
+            background: #281643;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
-        .project {
+        .navbar .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .navbar .logo .primary {
+            color: #7F4DED;
+        }
+
+        .navbar .logo .secondary {
+            color: #fff;
+        }
+
+        .navbar ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.2s;
+        }
+
+        .navbar ul li a:hover {
+            color: #7F4DED;
+        }
+
+        .navbar .hire-btn {
+            background: #7F4DED;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .navbar .hire-btn:hover {
+            background: #fff;
+            color: #281643;
+        }
+
+        /* Ensure section headers are visible after navbar scroll */
+        .about-section,
+        .projects-section,
+        .education-section,
+        .skills-section,
+        .contact-section {
+            scroll-margin-top: 110px;
+        }
+
+        .about-section {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            background-color: #f8f9fa;
+            justify-content: space-between;
+            padding: 60px 40px 40px 40px;
+            gap: 40px;
         }
 
-        .project img {
-            flex-shrink: 0;
+        .about-content {
+            max-width: 600px;
         }
 
-        .project-content {
-            flex: 1;
+        .about-content h1 {
+            font-size: 2.7rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
         }
 
-        .project a {
-            color: #27ae60;
+        .about-content h2 {
+            font-size: 2.1rem;
+            font-weight: bold;
+            color: #7F4DED;
+            margin-bottom: 18px;
+        }
+
+        .about-content p {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+        }
+
+        .about-content .cv-btn {
+            background: none;
+            border: 2px solid #7F4DED;
+            color: #7F4DED;
+            border-radius: 25px;
+            padding: 10px 28px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 18px;
+            transition: background 0.2s, color 0.2s;
             text-decoration: none;
+            display: inline-block;
         }
 
-        #contact form {
-            max-width: 400px;
-            margin: 0 auto;
+        .about-content .cv-btn:hover {
+            background: #7F4DED;
+            color: #fff;
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .about-content .socials {
+            margin-top: 18px;
         }
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #2c3e50;
+        .about-content .socials a {
+            color: #7F4DED;
+            margin-right: 18px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .about-content .socials a:hover {
+            color: #fff;
+        }
+
+        .about-image {
+            background: #281643;
+            border-radius: 20px;
+            padding: 18px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image img {
+            width: 240px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 16px;
+            background: #fff;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about-image img:hover {
+            transform: scale(1.06);
+            box-shadow: 0 8px 32px 0 #7F4DED55, 0 2px 8px 0 #0008;
+        }
+
+        .section-title {
+            color: #7F4DED;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .projects-section {
+            background: #18141f;
+            border-radius: 18px;
+            padding: 48px 24px;
+            margin: 40px 0;
+        }
+
+        .projects-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+
+        .project-card {
+            background: #281643;
+            border-radius: 16px;
+            padding: 24px 20px 20px 20px;
+            min-width: 260px;
+            max-width: 320px;
+            flex: 1 1 260px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 8px 32px 0 #7F4DED33, 0 2px 8px 0 #0008;
+            transform: translateY(-8px) scale(1.03);
+            z-index: 2;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 165px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 16px;
+            background: #232b3e;
+        }
+
+        .project-card h3 {
+            color: #7F4DED;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
             font-weight: bold;
         }
 
-        input,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            background-color: #f8f9fa;
+        .project-card p {
+            color: #e0e0e0;
+            margin-bottom: 16px;
         }
 
-        button {
-            padding: 10px 20px;
-            margin: 10px auto;
-            display: block;
-            background-color: #8e44ad;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .social-links {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            margin: 0 10px;
-            color: #27ae60;
+        .project-card a {
+            color: #7F4DED;
             text-decoration: none;
+            font-weight: bold;
+            margin-top: auto;
+            transition: color 0.2s;
         }
 
-        @media (max-width: 600px) {
-            .project {
+        .project-card a:hover {
+            color: #fff;
+        }
+
+        .education-section {
+            /* background: #18141f; */
+            border-radius: 18px;
+            padding: 48px 24px;
+            margin: 40px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .education-title {
+            color: #7F4DED;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 32px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .timeline {
+            position: relative;
+            margin-left: 30px;
+            margin-right: 30px;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #7F4DED 0%, #281643 100%);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            padding-left: 32px;
+        }
+
+
+        .timeline-date {
+            color: #7F4DED;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+
+        .timeline-content {
+            background: #281643;
+            border-radius: 12px;
+            padding: 18px 20px 18px 20px;
+            color: #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 8px 32px 0 #7F4DED33, 0 2px 8px 0 #0008;
+            transform: translateY(-8px) scale(1.03);
+            z-index: 2;
+        }
+
+        .timeline-content .timeline-date {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+
+        .skills-section {
+            background: #18141f;
+            border-radius: 18px;
+            padding: 48px 24px;
+            margin: 40px 0;
+        }
+
+        .skills-cards {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .skill-card {
+            background: #281643;
+            border-radius: 16px;
+            padding: 32px 28px;
+            min-width: 260px;
+            max-width: 320px;
+            flex: 1 1 260px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 24px;
+            color: #e0e0e0;
+            transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .skill-card:hover {
+            box-shadow: 0 8px 32px 0 #7F4DED33, 0 2px 8px 0 #0008;
+            transform: translateY(-8px) scale(1.03);
+            z-index: 2;
+        }
+
+        .skill-card .icon {
+            font-size: 2.2rem;
+            color: #7F4DED;
+            margin-bottom: 12px;
+        }
+
+        .skill-card h3 {
+            color: #7F4DED;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            padding: 0;
+            color: #e0e0e0;
+        }
+
+        .skill-card ul li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-card ul li .fa {
+            color: #7F4DED;
+            font-size: 1rem;
+        }
+
+        .footer {
+            background: #000;
+            color: #b0b8c1;
+            text-align: center;
+            padding: 32px 0 16px 0;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 60px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 18px;
+        }
+
+        .footer-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: #7F4DED;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 12px;
+        }
+
+        .footer-socials a {
+            color: #fff;
+            font-size: 2rem;
+            transition: color 0.2s;
+        }
+
+        .footer-socials a:hover {
+            color: #7F4DED;
+        }
+
+        .contact-section {
+            background: #18141f;
+            border-radius: 18px;
+            padding: 48px 24px;
+            margin: 40px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-section h2 {
+            color: #7F4DED;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .contact-form label {
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: #281643;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .contact-form button {
+            background: #7F4DED;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .contact-form button:hover {
+            background: #fff;
+            color: #281643;
+        }
+
+        .contact-socials {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .contact-socials a {
+            color: #7F4DED;
+            margin: 0 16px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-socials a:hover {
+            color: #fff;
+        }
+
+        /* Timeline desktop (ladder/السلم style) */
+        @media (min-width: 901px) {
+            .timeline {
+                position: relative;
+                margin-left: 0;
+                display: flex;
+
+            }
+
+            .timeline::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: 0;
+                width: 4px;
+                height: 100%;
+                background: linear-gradient(180deg, #7F4DED 0%, #281643 100%);
+                border-radius: 2px;
+                transform: translateX(-50%);
+            }
+
+            .timeline-item {
+                position: relative;
+                margin-bottom: 40px;
+                width: 50%;
+                padding-left: 0;
+            }
+
+
+
+            .timeline-item:nth-child(even) {
+                left: 45%;
+                text-align: left;
+                padding-left: 40px;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                text-align: right;
+                padding-right: 40px;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: 20px;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content {
+                margin-right: 20px;
+            }
+        }
+
+        /* Timeline mobile/tablet: vertical */
+        @media (max-width: 900px) {
+            .timeline {
+                margin-left: 0;
+            }
+
+            .timeline::before {
+                left: 0;
+                transform: none;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left !important;
+                padding: 0 0 0 32px !important;
+                margin-bottom: 40px;
+            }
+
+            .timeline-dot {
+                left: -14px;
+                top: 8px;
+                transform: none;
+            }
+
+            .timeline-content {
+                margin: 0 !important;
+            }
+        }
+
+        /* Navbar mobile/tablet: row layout for links */
+        @media (max-width: 900px) {
+            .navbar {
                 flex-direction: column;
+                align-items: center;
+                padding: 18px 10px;
+            }
+
+            .navbar .logo {
+                margin-bottom: 16px;
                 text-align: center;
             }
 
-            #skills ul {
-                grid-template-columns: 1fr;
+            .navbar ul {
+                flex-direction: row;
+                gap: 18px;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+
+            .contact-section {
+                margin-left: 24px;
+                margin-right: 24px;
             }
         }
     </style>
+    <!-- For icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <div class="container">
-        <!-- Navigation Bar -->
-        <nav>
-            <a href="#about">👤 About</a>
-            <a href="#skills">💻 Skills</a>
-            <a href="#projects">🚀 Projects</a>
-            <a href="#contact">📧 Contact Me</a>
-        </nav>
-
-        <main>
-            <!-- About Section -->
-            <section id="about">
-                <h2>👋 About Me</h2>
-                <img src="Mahmoud.png" alt="Profile Picture" width="120" height="120">
-                <p>I am Mahmoud Elnagar, Flutter Developer and a Bachelor's degree student in Computer Science with a
-                    focus
-                    on building high-performance, responsive, and user-friendly mobile applications.</p>
-            </section>
-
-            <!-- Skills Section -->
-            <section id="skills">
-                <h2>🛠️ Skills</h2>
+    <nav class="navbar">
+        <div class="logo"><span class="primary">Mahmoud</span> <span class="secondary">Mostafa</span></div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#Projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <!-- <a class="hire-btn" href="#contact">Hire me!</a> -->
+    </nav>
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h1>Hi, I'm Mahmoud Mostafa</h1>
+            <h2>Flutter Developer</h2>
+            <p>I'm a passionate Flutter developer with a strong foundation in mobile app development, specializing in
+                building high-performance, cross-platform applications. I love creating beautiful, responsive UIs and
+                delivering seamless user experiences. <br><br>Download my CV below or connect with me on social media!
+            </p>
+            <a class="cv-btn" href="https://drive.google.com/file/d/1m2b4VJXakVsl6LmJZAVtMdr90LeGWICZ/view"
+                target="_blank">Download CV <i class="fa fa-download"></i></a>
+            <div class="socials">
+                <a href="mailto:elnagarm852@gmail.com"><i class="fa fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/mahmoud-elnagar-11040a259/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Mahmoudelnagar5" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://wa.me/201558483168" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="about-image">
+            <img src="7oda.png" alt="Profile Picture">
+        </div>
+    </section>
+    <section class="skills-section" id="skills">
+        <div class="section-title">My Skills</div>
+        <div class="skills-cards">
+            <div class="skill-card">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
                 <ul>
-                    <li>🐍 Dart, C &amp; C++, Python</li>
-                    <li>🏗️ OOP &amp; Data Structure</li>
-                    <li>📱 Flutter Framework</li>
-                    <li>🌐 RESTful API</li>
-                    <li>💾 Local Storage (Hive &amp; Shared Preference)</li>
-                    <li>🔥 Firebase integration</li>
-                    <li>🏛️ MVVM &amp; Clean Architecture</li>
-                    <li>⚡ State Management (Bloc &amp; cubit &amp; Provider)</li>
-                    <li>📚 Git &amp; Github</li>
-                    <li>📱 Responsive &amp; Adaptive UI</li>
+                    <li><i class="fa fa-angle-right"></i> Dart (Advanced)</li>
+                    <li><i class="fa fa-angle-right"></i> C++ (Intermediate)</li>
+                    <li><i class="fa fa-angle-right"></i> C (Intermediate)</li>
+                    <li><i class="fa fa-angle-right"></i> Python (Intermediate)</li>
                 </ul>
-            </section>
-
-            <!-- Projects Section -->
-            <section id="projects">
-                <h2>🎯 Projects</h2>
-
-                <div class="project">
-                    <img src="FilmRise.png" alt="FilmRise App" width="80" height="80">
-                    <div class="project-content">
-                        <h3>🎬 1. FilmRise</h3>
-                        <p>A Flutter-based movie App built using BLoC, Clean Architecture, and SOLID principles to
-                            ensure
-                            scalability, maintainability, and robust design patterns.</p>
-                        <a href="https://github.com/Mahmoudelnagar5/FilmRise" target="_blank">🔗 View on GitHub</a>
-                    </div>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-mobile-alt"></i> Flutter Development</h3>
+                <ul>
+                    <li><i class="fa fa-angle-right"></i> Flutter Framework</li>
+                    <li><i class="fa fa-angle-right"></i> State Management (Bloc, Cubit)</li>
+                    <li><i class="fa fa-angle-right"></i> Firebase Integration</li>
+                    <li><i class="fa fa-angle-right"></i> RESTful APIs</li>
+                    <li><i class="fa fa-angle-right"></i> Local Storage (Hive, Shared Preferences)</li>
+                    <li><i class="fa fa-angle-right"></i> Responsive & Adaptive UI</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-laptop-code"></i> Software Engineering</h3>
+                <ul>
+                    <li><i class="fa fa-angle-right"></i> Object-Oriented Programming</li>
+                    <li><i class="fa fa-angle-right"></i> Data Structures & Algorithms</li>
+                    <li><i class="fa fa-angle-right"></i> SOLID Principles</li>
+                    <li><i class="fa fa-angle-right"></i> MVVM Architecture</li>
+                    <li><i class="fa fa-angle-right"></i> Clean Architecture</li>
+                    <li><i class="fa fa-angle-right"></i> Git Version Control</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3><i class="fas fa-globe"></i> Languages</h3>
+                <ul>
+                    <li><i class="fa fa-angle-right"></i> Arabic (Native)</li>
+                    <li><i class="fa fa-angle-right"></i> English (Intermediate)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="projects-section" id="Projects">
+        <div class="section-title">Projects</div>
+        <div class="projects-cards">
+            <div class="project-card">
+                <img src="FilmRise.png" alt="FilmRise App">
+                <h3>FilmRise App</h3>
+                <p>A Flutter-based movie application built with BLoC, Clean Architecture, and SOLID principles for
+                    scalable, maintainable code and robust design patterns.</p>
+                <a href="https://github.com/Mahmoudelnagar5/FilmRise" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project-card">
+                <img src="Responsive&Adaptive.png" alt="Responsive Dash Board">
+                <h3>Responsive Dash Board</h3>
+                <p>A modern, responsive dashboard built with Flutter, featuring adaptive layouts and clean UI for web
+                    and mobile platforms.</p>
+                <a href="https://github.com/Mahmoudelnagar5/responsive_dash_board" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project-card">
+                <img src="Muslim.png" alt="Muslim App">
+                <h3>Muslim App</h3>
+                <p>Quran app built using the MVVM pattern, delivering clean architecture, efficient state management,
+                    and a beautiful user experience.</p>
+                <a href="https://github.com/Mahmoudelnagar5/Muslim" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project-card">
+                <img src="Gemini.png" alt="Gemini AI">
+                <h3>Gemini AI</h3>
+                <p>Cutting-edge Flutter chat app powered by Gemini AI, supporting multimedia messaging, real-time
+                    interaction, and robust state management.</p>
+                <a href="https://github.com/Mahmoudelnagar5/Gemini" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project-card">
+                <img src="Travelling.png" alt="Travelling App">
+                <h3>Travelling App</h3>
+                <p>Travel app UI built with Flutter, featuring beautiful layouts and smooth navigation for travel
+                    experiences.</p>
+                <a href="https://github.com/Mahmoudelnagar5/Travelling_App_UI" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project-card">
+                <img src="Bookly.png" alt="Bookly App">
+                <h3>Bookly App</h3>
+                <p>Book reading app with a modern UI, built in Flutter, supporting book discovery, reading, and
+                    management features.</p>
+                <a href="https://github.com/Mahmoudelnagar5/Bookly-App" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+    </section>
+    <section class="education-section" id="education">
+        <div class="education-title"><i class="fas fa-graduation-cap"></i> My Education</div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2025</span>
+                    <strong>Training – Information Technology Institute (ITI)</strong><br>
+                    Completed intensive mobile application development training at ITI, gaining hands-on experience with
+                    Flutter, Dart, Firebase, REST APIs, Git, and UI/UX design. Worked on multiple real-world projects in
+                    a collaborative environment.
                 </div>
-
-                <div class="project">
-                    <img src="Muslim.png" alt="Muslim App" width="80" height="80">
-                    <div class="project-content">
-                        <h3>📖 2. Muslim</h3>
-                        <p>Quran App Built using the MVVM pattern, this app delivers clean architecture, efficient state
-                            management
-                            with Flutter Bloc.</p>
-                        <a href="https://github.com/Mahmoudelnagar5/Muslim" target="_blank">🔗 View on GitHub</a>
-                    </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 - 2024</span>
+                    <strong>Mastering Flutter: Responsive & Adaptive UI Design</strong><br>
+                    Udemy
                 </div>
-
-                <div class="project">
-                    <img src="Gemini.png" alt="Gemini AI App" width="80" height="80">
-                    <div class="project-content">
-                        <h3>🤖 3. Gemini AI</h3>
-                        <p>Developed a cutting-edge Flutter chat app powered by Gemini AI, supporting multimedia
-                            messaging with text
-                            and images, real-time interaction, seamless image handling, and robust state management
-                            using Flutter
-                            Bloc for a smooth and scalable user experience.</p>
-                        <a href="https://github.com/Mahmoudelnagar5/Gemini" target="_blank">🔗 View on GitHub</a>
-                    </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 - 2024
+                    </span>
+                    <strong>Flutter Advanced Course Bloc and MVVM Pattern</strong><br>
+                    Udemy
                 </div>
-            </section>
-
-            <!-- Contact Section -->
-            <section id="contact">
-                <h2>📞 Contact Me</h2>
-                <form action="mailto:elnagarm852@gmail.com" method="POST" enctype="text/plain">
-                    <div class="form-group">
-                        <label for="name">👤 Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">📧 Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">💬 Message</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                    </div>
-                    <button type="submit">📤 Send Message</button>
-                </form>
-
-                <div class="social-links">
-                    <a href="mailto:elnagarm852@gmail.com">📧 Email</a>
-                    <a href="https://www.linkedin.com/in/mahmoud-elnagar-11040a259/" target="_blank">💼 LinkedIn</a>
-                    <a href="https://github.com/Mahmoudelnagar5" target="_blank">🐙 GitHub</a>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 - 2024
+                    </span>
+                    <strong>Master Git & GitHub: Essential Skills for Developers</strong><br>
+                    Udemy
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 - 2024
+                    </span>
+                    <strong>Flutter Clean Architecture</strong><br>
+                    Udemy
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 - 2024
+                    </span>
+                    <strong>Complete Flutter & Dart Development Course</strong><br>
+                    Udemy
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2022</span>
+                    <div><strong>Started studying Computer Science at Fayoum University</strong><br>Building a strong
+                        foundation in computer science, programming, and software engineering principles.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-section" id="contact">
+        <h2>Contact Me</h2>
+        <form class="contact-form" action="mailto:elnagarm852@gmail.com" method="POST" enctype="text/plain">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-socials">
+            <a href="mailto:elnagarm852@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/mahmoud-elnagar-11040a259/" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Mahmoudelnagar5" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://wa.me/201558483168" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-nav">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#Projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div style="margin-top: 20px;">
+            © 2025 Mahmoud Mostafa Ahmed. All rights reserved.
+        </div>
+    </footer>
 </body>
+
+</html>
 
 </html>
