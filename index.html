@@ -636,6 +636,63 @@
                 margin-right: 24px;
             }
         }
+
+        /* About section responsive styles */
+        @media (max-width: 900px) {
+            .about-section {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 32px 10px 24px 10px;
+                gap: 24px;
+                text-align: center;
+            }
+
+            .about-image {
+                order: 0;
+            }
+
+            .about-content {
+                order: 1;
+                max-width: 100%;
+            }
+
+            .about-content h1 {
+                font-size: 2rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.4rem;
+            }
+
+            .about-content p {
+                font-size: 1rem;
+            }
+
+            .about-image {
+                padding: 10px;
+            }
+
+            .about-image img {
+                width: 160px;
+                height: 210px;
+            }
+
+            .about-content .cv-btn {
+                width: 100%;
+                padding: 10px 0;
+                font-size: 1rem;
+            }
+
+            .about-content .socials {
+                margin-top: 14px;
+            }
+
+            .about-content .socials a {
+                font-size: 1.3rem;
+                margin-right: 12px;
+            }
+        }
     </style>
     <!-- For icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -863,7 +920,5 @@
         </div>
     </footer>
 </body>
-
-</html>
 
 </html>
