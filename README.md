@@ -11,7 +11,7 @@ This is a **modern, responsive portfolio** website for **Mahmoud Mostafa**, a Fl
 - 👤 **Profile section** with image and social/contact links  
 - 🧠 **Skills section** with card layout and icons  
 - 💼 **Projects section** with cards, screenshots, and GitHub links  
-- 🎓 **Education timeline** in ladder (السلم) style  
+- 🎓 **Education timeline** in ladder style  
 - ✉️ **Contact section** with form and social icons  
 - 🖱️ **Interactive UI** with hover effects
 
